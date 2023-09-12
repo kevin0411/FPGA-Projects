@@ -1,0 +1,22 @@
+module select_adder (
+	input  [15:0] A, B,
+	input         cin,
+	output [15:0] S,
+	output        cout
+);
+
+    /* TODO
+     *
+     * Insert code here to implement a CSA adder.
+     * Your code should be completly combinational (don't use always_ff or always_latch).
+     * Feel free to create sub-modules or other files. */
+	  
+	  logic c1, c2, c3;
+	  
+	  select_adder4 SA0(.A(A[3:0]), .B(B[3:0]), .cin(cin), .s(S[3:0]), .cout(c1));
+	  select_adder4 SA1(.A(A[7:4]), .B(B[7:4]), .cin(c1), .s(S[7:4]), .cout(c2));
+	  select_adder4 SA2(.A(A[11:8]), .B(B[11:8]), .cin(c2), .s(S[11:8]), .cout(c3));
+	  select_adder4 SA3(.A(A[15:12]), .B(B[15:12]), .cin(c3), .s(S[15:12]), .cout(cout));
+	 
+
+endmodule

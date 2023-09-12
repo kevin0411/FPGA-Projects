@@ -1,0 +1,19 @@
+module subtracter9
+(
+	input  [8:0] A, B
+	output [8:0] S,
+	output        cout
+);
+	
+	 logic c1, c2, c3, c4, c5, c6, c7, c8;
+	 full_adder FA0(.A(A[0]), .B(~B[0]), .cin(1), .s(S[0]), .cout(c1));
+	 full_adder FA1(.A(A[1]), .B(~B[1]), .cin(c1), .s(S[1]), .cout(c2));
+	 full_adder FA2(.A(A[2]), .B(~B[2]), .cin(c2), .s(S[2]), .cout(c3));
+	 full_adder FA3(.A(A[3]), .B(~B[3]), .cin(c3), .s(S[3]), .cout(c4));
+	 full_adder FA4(.A(A[4]), .B(~B[4]), .cin(c4), .s(S[4]), .cout(c5));
+	 full_adder FA5(.A(A[5]), .B(~B[5]), .cin(c5), .s(S[5]), .cout(c6));
+	 full_adder FA6(.A(A[6]), .B(~B[6]), .cin(c6), .s(S[6]), .cout(c7));
+	 full_adder FA7(.A(A[7]), .B(~B[7]), .cin(c7), .s(S[7]), .cout(c8));
+	 full_adder FA8(.A(A[8]), .B(~B[8]), .cin(c8), .s(S[8]), .cout(cout));
+	 
+endmodule

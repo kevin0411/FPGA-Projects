@@ -1,0 +1,15 @@
+`define NUM_REGS 601
+`define CTRL_REG 600
+
+module ram_32x8 #(parameter N = `NUM_REGS)(
+						input [7:0] d,
+						input [4:0] wrtie_addr, read_addr,
+						input we, clk,
+						output logic[7:0] q
+);
+	logic [7:0] mem[N-1];
+	always_ff@(posedge clk) begin: on_chip
+		if(we) mem[write_addr] <=d;
+		q<=mem[read_addr];
+	end
+	endmodule
